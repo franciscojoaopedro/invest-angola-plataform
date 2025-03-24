@@ -364,7 +364,7 @@ function CompanyDetail() {
                     <span className="text-gray-600">Investimento Mínimo</span>
                   </div>
                   <span className="font-semibold">
-                    {formatCurrency(company.minInvestment)}
+                    {formatCurrency(company.min_investment)}
                   </span>
                 </div>
                 <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">

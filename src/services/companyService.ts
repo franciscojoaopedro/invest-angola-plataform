@@ -8,6 +8,7 @@ export interface Company {
   foundedYear: number;
   valuation: number;
   minInvestment: number;
+  min_investment?:number;
   equity: number;
   description: string;
   website?: string;

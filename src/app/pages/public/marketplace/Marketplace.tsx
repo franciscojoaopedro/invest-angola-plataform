@@ -8,6 +8,7 @@ import { Button } from '@/app/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/app/components/ui/select';
 import { CompanyCard } from '@/app/components/CompanyCard';
 import { CompanyTable } from '@/app/components/CompanyTable';
+import { useQuery } from '@tanstack/react-query';
 
 
 
@@ -17,9 +18,7 @@ import { CompanyTable } from '@/app/components/CompanyTable';
 type ViewMode = 'grid' | 'table';
 
 function Marketplace() {
-  const [companies, setCompanies] = useState<Company[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedSector, setSelectedSector] = useState('all');
   const [statusFilter, setStatusFilter] = useState<'all' | 'pending' | 'approved'>('all');
@@ -27,26 +26,20 @@ function Marketplace() {
   const [showFilters, setShowFilters] = useState(false);
 
   const sectors = ['all', 'Tecnologia', 'Agricultura', 'Energia', 'Saúde', 'Educação'];
+  const {data,isLoading,isError}=useQuery({
+    queryKey:["listCompanies"],
+    queryFn:   ()=>  loadCompanies()
+  })
 
-  useEffect(() => {
-    loadCompanies();
-  }, []);
+  
+
 
   const loadCompanies = async () => {
-    try {
-      setLoading(true);
-      const data = await companyService.listCompanies();
-      setCompanies(data || []);
-    } catch (err) {
-      setError('Erro ao carregar empresas. Por favor, tente novamente mais tarde.');
-      console.error('Error loading companies:', err);
-      setCompanies([]);
-    } finally {
-      setLoading(false);
-    }
+    const data:Company[]|undefined  = await companyService.listCompanies();
+    return data
   };
 
-  const filteredCompanies = companies.filter(company => {
+  const filteredCompanies = (data??[]).filter(company => {
     if (!company) return false;
     const matchesSearch = company.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          company.description?.toLowerCase().includes(searchTerm.toLowerCase());
@@ -56,11 +49,12 @@ function Marketplace() {
   });
 
   const formatCurrency = (value: number | undefined) => {
+    console.log("valores minimos",value)
     if (value === undefined || value === null) return 'N/A';
     return value.toLocaleString('pt-BR', { style: 'currency', currency: 'AOA' });
   };
 
-  if (loading) {
+  if (isLoading) {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex items-center justify-center h-64">
@@ -70,12 +64,12 @@ function Marketplace() {
     );
   }
 
-  if (error) {
+  if (isError) {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <Card className="bg-destructive/10 border-destructive">
           <CardContent className="p-4 text-destructive">
-            {error}
+            {isError}
           </CardContent>
         </Card>
       </div>

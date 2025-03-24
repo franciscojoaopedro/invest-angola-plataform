@@ -101,7 +101,8 @@ export function CompanyCard({ company, formatCurrency }: CompanyCardProps) {
             </div>
             <div className="flex items-center gap-2">
               <Users size={16} className="text-muted-foreground" />
-              <span className="text-sm text-muted-foreground">Min: {formatCurrency(company.minInvestment)}</span>
+             
+              <span className="text-sm text-muted-foreground">Min: {formatCurrency(company.min_investment)}</span>
             </div>
           </div>
         </CardContent>
