@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as Icons from 'lucide-react';
 import { Financials,Company, Document,companyService } from '@/services/companyService';
-import { redirect, Route, useNavigate } from '@tanstack/react-router';
+import { redirect, useNavigate } from '@tanstack/react-router';
 import { authService } from '@/services/authService';
 
 

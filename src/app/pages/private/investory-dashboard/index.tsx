@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Building2, TrendingUp, DollarSign, Users, ArrowUpRight, ArrowDownRight, Clock, FileText, Receipt } from 'lucide-react';
 
 // Função auxiliar para formatar valores em AOA

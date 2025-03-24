@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 
-import { Building2, Users, TrendingUp, DollarSign, BarChart as ChartBar, FileText, MapPin, Calendar, ArrowLeft, Download, Share2, Heart, MessageSquare, Globe, Mail, Phone, Clock, CheckCircle2 } from 'lucide-react';
+import { Building2, Users, TrendingUp, DollarSign, BarChart as ChartBar, FileText, MapPin, Calendar, ArrowLeft, Download, Share2, Heart, MessageSquare, Globe, Mail, Clock, CheckCircle2 } from 'lucide-react';
 import { Company, companyService } from '@/services/companyService';
 
 import { Link } from '@tanstack/react-router';

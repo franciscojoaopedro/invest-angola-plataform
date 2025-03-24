@@ -1,6 +1,6 @@
-import React from 'react';
 
-import { Building2, DollarSign, TrendingUp, Users, Clock, CheckCircle2, ArrowUpRight, ArrowDownRight } from 'lucide-react';
+
+import { Building2, DollarSign, Users, Clock, CheckCircle2,  } from 'lucide-react';
 
 import {
   Table,
@@ -11,7 +11,7 @@ import {
   TableRow,
 } from "@/app/components/ui/table";
 import { Badge } from "@/app/components/ui/badge";
-import { Avatar, AvatarFallback, AvatarImage } from "@/app/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/app/components/ui/avatar";
 import { Company } from '@/services/companyService';
 import { Link } from '@tanstack/react-router';
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Search, FileText, Building2, DollarSign, Users, Clock, CheckCircle2, XCircle, TrendingUp } from 'lucide-react';
 import { Company, companyService } from '@/services/companyService';
 import { useAuth } from '@/app/contexts/AuthContext';
@@ -18,17 +18,17 @@ function AdminDashboard() {
   const [selectedSector, setSelectedSector] = useState('all');
   const [statusFilter, setStatusFilter] = useState<'all' | 'pending' | 'approved'>('all');
   const navigate = useNavigate();
-  const { user, isAdmin } = useAuth();
+  const {  isAdmin } = useAuth();
 
   const sectors = ['all', 'Tecnologia', 'Agricultura', 'Energia', 'Saúde', 'Educação'];
 
   useEffect(() => {
-    // if (!isAdmin) {
-    //   navigate({
-    //     to:"/"
-    //   });
-    //   return;
-    // }
+    if (!isAdmin) {
+      navigate({
+        to:"/"
+      });
+      return;
+    }
     loadCompanies();
   }, [isAdmin, navigate]);
 
@@ -80,19 +80,19 @@ function AdminDashboard() {
     return value.toLocaleString('pt-BR', { style: 'currency', currency: 'AOA' });
   };
 
-  // if (!isAdmin) {
-  //   return null;
-  // }
+  if (!isAdmin) {
+    return null;
+  }
 
-  // if (loading) {
-  //   return (
-  //     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-  //       <div className="flex items-center justify-center h-64">
-  //         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-  //       </div>
-  //     </div>
-  //   );
-  // }
+  if (loading) {
+    return (
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="flex items-center justify-center h-64">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+        </div>
+      </div>
+    );
+  }
 
   if (error) {
     return (

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Search, Filter, LayoutGrid, Table, SlidersHorizontal, Loader2 } from 'lucide-react';
+import  { useState, useEffect } from 'react';
+import { Search, LayoutGrid, Table, SlidersHorizontal, Loader2 } from 'lucide-react';
 import { Company, companyService } from '@/services/companyService';
 import { Card, CardContent } from '@/app/components/ui/card';
 import { Input } from '@/app/components/ui/input';

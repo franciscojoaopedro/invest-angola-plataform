@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { motion } from 'framer-motion';
 
 import { Building2, DollarSign, TrendingUp, Users, Clock, CheckCircle2 } from 'lucide-react';
