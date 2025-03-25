@@ -52,13 +52,13 @@ export function Navbar() {
   }
 
   return (
-    <nav className="bg-white shadow-sm">
+    <nav className="bg-white shadow-sm font-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
-              <Link to="/" className="text-xl font-bold text-blue-600">
-                InvestAngola
+              <Link to="/" className="text-xl font-medium text-blue-600">
+                njila.investe
               </Link>
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">

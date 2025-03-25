@@ -46,7 +46,7 @@ export default function Footer(){
             </div>
           </div>
           <div className="border-t border-gray-800 mt-12 pt-8 text-center">
-            <p>© 2024 Plataforma de Investimentos. Todos os direitos reservados.</p>
+            <p>© 2024 Njila  Investimentos. Todos os direitos reservados.</p>
           </div>
         </div>
       </footer>

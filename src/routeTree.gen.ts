@@ -17,6 +17,7 @@ import { Route as MarketeplaceImport } from './app/routes/marketeplace'
 import { Route as LoginImport } from './app/routes/login'
 import { Route as ListCompanyImport } from './app/routes/list-company'
 import { Route as InvestDashboardImport } from './app/routes/invest-dashboard'
+import { Route as DashboardImport } from './app/routes/dashboard'
 import { Route as CompanyListingImport } from './app/routes/company-listing'
 import { Route as CompaniesImport } from './app/routes/companies'
 import { Route as AdminDashboardImport } from './app/routes/admin-dashboard'
@@ -60,6 +61,12 @@ const ListCompanyRoute = ListCompanyImport.update({
 const InvestDashboardRoute = InvestDashboardImport.update({
   id: '/invest-dashboard',
   path: '/invest-dashboard',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DashboardRoute = DashboardImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -143,6 +150,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompanyListingImport
       parentRoute: typeof rootRoute
     }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardImport
+      parentRoute: typeof rootRoute
+    }
     '/invest-dashboard': {
       id: '/invest-dashboard'
       path: '/invest-dashboard'
@@ -210,6 +224,7 @@ export interface FileRoutesByFullPath {
   '/admin-dashboard': typeof AdminDashboardRoute
   '/companies': typeof CompaniesRoute
   '/company-listing': typeof CompanyListingRoute
+  '/dashboard': typeof DashboardRoute
   '/invest-dashboard': typeof InvestDashboardRoute
   '/list-company': typeof ListCompanyRoute
   '/login': typeof LoginRoute
@@ -226,6 +241,7 @@ export interface FileRoutesByTo {
   '/admin-dashboard': typeof AdminDashboardRoute
   '/companies': typeof CompaniesRoute
   '/company-listing': typeof CompanyListingRoute
+  '/dashboard': typeof DashboardRoute
   '/invest-dashboard': typeof InvestDashboardRoute
   '/list-company': typeof ListCompanyRoute
   '/login': typeof LoginRoute
@@ -243,6 +259,7 @@ export interface FileRoutesById {
   '/admin-dashboard': typeof AdminDashboardRoute
   '/companies': typeof CompaniesRoute
   '/company-listing': typeof CompanyListingRoute
+  '/dashboard': typeof DashboardRoute
   '/invest-dashboard': typeof InvestDashboardRoute
   '/list-company': typeof ListCompanyRoute
   '/login': typeof LoginRoute
@@ -261,6 +278,7 @@ export interface FileRouteTypes {
     | '/admin-dashboard'
     | '/companies'
     | '/company-listing'
+    | '/dashboard'
     | '/invest-dashboard'
     | '/list-company'
     | '/login'
@@ -276,6 +294,7 @@ export interface FileRouteTypes {
     | '/admin-dashboard'
     | '/companies'
     | '/company-listing'
+    | '/dashboard'
     | '/invest-dashboard'
     | '/list-company'
     | '/login'
@@ -291,6 +310,7 @@ export interface FileRouteTypes {
     | '/admin-dashboard'
     | '/companies'
     | '/company-listing'
+    | '/dashboard'
     | '/invest-dashboard'
     | '/list-company'
     | '/login'
@@ -308,6 +328,7 @@ export interface RootRouteChildren {
   AdminDashboardRoute: typeof AdminDashboardRoute
   CompaniesRoute: typeof CompaniesRoute
   CompanyListingRoute: typeof CompanyListingRoute
+  DashboardRoute: typeof DashboardRoute
   InvestDashboardRoute: typeof InvestDashboardRoute
   ListCompanyRoute: typeof ListCompanyRoute
   LoginRoute: typeof LoginRoute
@@ -324,6 +345,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminDashboardRoute: AdminDashboardRoute,
   CompaniesRoute: CompaniesRoute,
   CompanyListingRoute: CompanyListingRoute,
+  DashboardRoute: DashboardRoute,
   InvestDashboardRoute: InvestDashboardRoute,
   ListCompanyRoute: ListCompanyRoute,
   LoginRoute: LoginRoute,
@@ -349,6 +371,7 @@ export const routeTree = rootRoute
         "/admin-dashboard",
         "/companies",
         "/company-listing",
+        "/dashboard",
         "/invest-dashboard",
         "/list-company",
         "/login",
@@ -373,6 +396,9 @@ export const routeTree = rootRoute
     },
     "/company-listing": {
       "filePath": "company-listing.tsx"
+    },
+    "/dashboard": {
+      "filePath": "dashboard.tsx"
     },
     "/invest-dashboard": {
       "filePath": "invest-dashboard.tsx"

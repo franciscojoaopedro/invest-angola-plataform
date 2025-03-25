@@ -6,8 +6,8 @@ import { Input } from '@/app/components/ui/input';
 import { Tabs, TabsList, TabsTrigger } from '@/app/components/ui/tabs';
 import { Button } from '@/app/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/app/components/ui/select';
-import { CompanyCard } from '@/app/components/CompanyCard';
-import { CompanyTable } from '@/app/components/CompanyTable';
+import { CompanyCard } from '@/app/components/company-card';
+import { CompanyTable } from '@/app/components/company-table';
 import { useQuery } from '@tanstack/react-query';
 
 

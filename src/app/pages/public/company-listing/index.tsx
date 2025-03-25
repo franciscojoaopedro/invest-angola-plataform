@@ -249,23 +249,23 @@ function CompanyListing() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-3xl font-bold text-gray-900 mb-4">Listar Empresa</h1>
-        <p className="text-gray-600 mb-8">
+        <h1 className="text-4xl font-bold text-blue-600 mb-4">Listar Empresa</h1>
+        <p className="text-gray-700 mb-8">
           Preencha o formulário abaixo para listar sua empresa na plataforma. 
           Nossa equipe irá analisar sua submissão e entrar em contato em breve.
         </p>
 
         {error && (
-          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-6">
+          <div className="bg-red-100 border border-red-300 text-red-700 px-4 py-3 rounded-lg mb-6">
             {error}
           </div>
         )}
 
         <form onSubmit={handleSubmit} className="space-y-8">
           {/* Informações Básicas */}
-          <div className="bg-white rounded-lg shadow-sm p-6">
-            <h2 className="text-xl font-semibold text-gray-900 mb-6">Informações Básicas</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-white rounded-lg shadow-lg p-8">
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6">Informações Básicas</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Nome da Empresa
@@ -275,7 +275,7 @@ function CompanyListing() {
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
                   required
                 />
               </div>
@@ -287,7 +287,7 @@ function CompanyListing() {
                   name="sector"
                   value={formData.sector}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
                   required
                 >
                   <option value="">Selecione um setor</option>
@@ -308,7 +308,7 @@ function CompanyListing() {
                   name="location"
                   value={formData.location}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
                   required
                 />
               </div>
@@ -321,7 +321,7 @@ function CompanyListing() {
                   name="foundedYear"
                   value={formData.foundedYear}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
                   required
                 />
               </div>
@@ -329,9 +329,9 @@ function CompanyListing() {
           </div>
 
           {/* Detalhes do Investimento */}
-          <div className="bg-white rounded-lg shadow-sm p-6">
-            <h2 className="text-xl font-semibold text-gray-900 mb-6">Detalhes do Investimento</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-white rounded-lg shadow-lg p-8">
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6">Detalhes do Investimento</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Valorização da Empresa
@@ -345,7 +345,7 @@ function CompanyListing() {
                     name="valuation"
                     value={formData.valuation}
                     onChange={handleInputChange}
-                    className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
                     placeholder="Ex: 500.000"
                     required
                   />
@@ -364,7 +364,7 @@ function CompanyListing() {
                     name="minInvestment"
                     value={formData.minInvestment}
                     onChange={handleInputChange}
-                    className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
                     placeholder="Ex: 1.000"
                     required
                   />
@@ -383,7 +383,7 @@ function CompanyListing() {
                     name="equity"
                     value={formData.equity}
                     onChange={handleInputChange}
-                    className="w-full pr-8 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full pr-8 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
                     placeholder="Ex: 5"
                     required
                   />
@@ -398,7 +398,7 @@ function CompanyListing() {
                   name="website"
                   value={formData.website}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
                   placeholder="https://"
                 />
               </div>
@@ -598,7 +598,7 @@ function CompanyListing() {
             <button
               type="submit"
               disabled={loading}
-              className={`bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition flex items-center gap-2 ${
+              className={`bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold transition duration-200 flex items-center gap-2 ${
                 loading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'
               }`}
             >
